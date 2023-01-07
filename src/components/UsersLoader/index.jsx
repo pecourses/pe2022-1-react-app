@@ -12,7 +12,7 @@ class UsersLoader extends Component {
     };
   }
 
-  componentDidMount() {
+  loadUsers = () => {
     const { currentPage } = this.state;
 
     this.setState({ isFetching: true });
@@ -21,13 +21,34 @@ class UsersLoader extends Component {
       .then(data => this.setState({ users: data.results }))
       .catch(e => this.setState({ error: e }))
       .finally(() => this.setState({ isFetching: false }));
+  };
+
+  componentDidMount() {
+    this.loadUsers();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { currentPage } = this.state;
+
+    if (currentPage !== prevState.currentPage) {
+      this.loadUsers();
+    }
+  }
+
+  prevPage = () => {};
+
+  nextPage = () => {
+    const { currentPage } = this.state;
+    this.setState({ currentPage: currentPage + 1 });
+  };
 
   render() {
     const { users, isFetching, error } = this.state;
 
     return (
       <>
+        <button onClick={this.prevPage}>{'<'}</button>
+        <button onClick={this.nextPage}>{'>'}</button>
         {error && <div>!!!ERROR!!! {JSON.stringify(error)}</div>}
         {isFetching && <div>Loading. Please waite...</div>}
         {!error && !isFetching && (
