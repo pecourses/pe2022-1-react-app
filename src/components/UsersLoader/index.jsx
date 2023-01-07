@@ -35,7 +35,12 @@ class UsersLoader extends Component {
     }
   }
 
-  prevPage = () => {};
+  prevPage = () => {
+    const { currentPage } = this.state;
+    if (currentPage > 1) {
+      this.setState({ currentPage: currentPage - 1 });
+    }
+  };
 
   nextPage = () => {
     const { currentPage } = this.state;
@@ -47,16 +52,18 @@ class UsersLoader extends Component {
 
     return (
       <>
-        <button onClick={this.prevPage}>{'<'}</button>
-        <button onClick={this.nextPage}>{'>'}</button>
         {error && <div>!!!ERROR!!! {JSON.stringify(error)}</div>}
         {isFetching && <div>Loading. Please waite...</div>}
         {!error && !isFetching && (
-          <ul>
-            {users.map(u => (
-              <li key={u.id}>{JSON.stringify(u)}</li>
-            ))}
-          </ul>
+          <>
+            <button onClick={this.prevPage}>{'<'}</button>
+            <button onClick={this.nextPage}>{'>'}</button>
+            <ul>
+              {users.map(u => (
+                <li key={u.id}>{JSON.stringify(u)}</li>
+              ))}
+            </ul>
+          </>
         )}
       </>
     );
