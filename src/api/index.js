@@ -1,9 +1,11 @@
+import CONFIGS from './../configs';
+
 function getUsers(options) {
   const defaultOptions = {
     page: 1,
-    results: 10,
-    seed: 'pe2022',
-    inc: ['name', 'gender', 'email', 'login'],
+    results: CONFIGS.RESULTS_COUNT,
+    seed: CONFIGS.RESULTS_ORDER,
+    inc: CONFIGS.INCLUDUNG_RESULTS,
   };
 
   const realOptions = {
@@ -14,7 +16,7 @@ function getUsers(options) {
   const { page, results, seed, inc } = realOptions;
 
   return fetch(
-    `https://randomuser.me/api/?page=${page}&results=${results}&seed=${seed}&inc=${inc}`
+    `${CONFIGS.BASE_URL}?page=${page}&results=${results}&seed=${seed}&inc=${inc}`
   ).then(response => response.json());
 }
 
