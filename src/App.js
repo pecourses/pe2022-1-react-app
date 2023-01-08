@@ -1,7 +1,7 @@
-import UsersLoader from './components/UsersLoader';
+import AnimalSlider from './components/AnimalSlider';
 
 function App() {
-  return <UsersLoader />;
+  return <AnimalSlider />;
 }
 
 export default App;
