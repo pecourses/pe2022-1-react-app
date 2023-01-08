@@ -4,8 +4,8 @@ import ImageWrapper from './components/ImageWrapper';
 function App() {
   return (
     <ImageWrapper
-      width="400px"
-      height="300px"
+      // width="400px"
+      // height="300px"
       title="image"
       tabIndex={1}
       className="container">
