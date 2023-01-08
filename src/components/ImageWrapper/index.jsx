@@ -1,13 +1,14 @@
 import styles from './ImageWrapper.module.sass';
 
-function ImageWrapper({ width, height, children }) {
+// проброс пропсов
+function ImageWrapper({ width, height, children, ...restProps }) {
   const wrapperDims = {
-    width: width,
-    height: height,
+    width, // width: width
+    height, // height: height
   };
 
   return (
-    <div style={wrapperDims} className={styles.imageContainer}>
+    <div {...restProps} style={wrapperDims} className={styles.imageContainer}>
       {children}
     </div>
   );
