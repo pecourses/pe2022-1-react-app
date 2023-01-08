@@ -17,12 +17,7 @@ class UsersLoader extends Component {
     const { currentPage } = this.state;
 
     this.setState({ isFetching: true });
-    getUsers({
-      page: currentPage,
-      results: 5,
-      seed: 'pe2022',
-      inc: ['name', 'gender', 'email', 'login'],
-    })
+    getUsers({ page: currentPage, results: 5 })
       .then(data => this.setState({ users: data.results }))
       .catch(e => this.setState({ error: e }))
       .finally(() => this.setState({ isFetching: false }));
