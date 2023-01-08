@@ -1,3 +1,4 @@
+import queryString from 'query-string';
 import CONFIGS from './../configs';
 
 function getUsers(options) {
@@ -13,11 +14,13 @@ function getUsers(options) {
     ...options,
   };
 
-  const { page, results, seed, inc } = realOptions;
+  const queryStringifiedOptions = queryString.stringify(realOptions, {
+    arrayFormat: 'comma',
+  });
 
-  return fetch(
-    `${CONFIGS.BASE_URL}?page=${page}&results=${results}&seed=${seed}&inc=${inc}`
-  ).then(response => response.json());
+  return fetch(`${CONFIGS.BASE_URL}?${queryStringifiedOptions}`).then(
+    response => response.json()
+  );
 }
 
 export default getUsers;
