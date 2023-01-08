@@ -1,16 +1,36 @@
-import FlexContainer from './components/FlexContainer';
-import ImageWrapper from './components/ImageWrapper/index';
+import DataProvider from './components/DataProvider/index';
+
+const PhonesLoadedList = props => {
+  const { data: phones, isFetching, error } = props.phonesData;
+  return (
+    <>
+      {isFetching && <div>Loading...</div>}
+      {error && <div>ERROR</div>}
+      <ol>
+        {phones.map(p => (
+          <li key={p.id}>
+            {p.brand} {p.model}: {p.price}
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+};
+
+// Рендер-проп - функція, яка повідомляє компоненту що необхідно відрендерити
+// Цей патерн дозволяє ділитися логікою
 
 function App() {
   return (
-    <FlexContainer>
-      <ImageWrapper width="400px" height="300px">
-        <img
-          src="https://images.pexels.com/photos/11046405/pexels-photo-11046405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="home"
-        />
-      </ImageWrapper>
-    </FlexContainer>
+    <>
+      {/* <DataProvider
+        fileName="/data/phones.json"
+        render={data => <PhonesLoadedList phonesData={data} />}
+      /> */}
+      <DataProvider fileName="/data/phones.json">
+        {data => <PhonesLoadedList phonesData={data} />}
+      </DataProvider>
+    </>
   );
 }
 
