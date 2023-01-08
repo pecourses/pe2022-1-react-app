@@ -14,7 +14,10 @@ function FlexContainer(props) {
 }
 
 FlexContainer.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
   jc: PropTypes.oneOf([
     'flex-start',
     'flex-end',

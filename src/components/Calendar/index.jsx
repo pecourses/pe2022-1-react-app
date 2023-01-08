@@ -9,7 +9,7 @@ import {
   getYear,
   addDays,
   parse,
-  isEqual,
+  isSameDay,
   isSameMonth,
 } from 'date-fns';
 
@@ -56,8 +56,8 @@ class Calendar extends Component {
     }
 
     // перевірка, чи співпадають 2 дати (щоб підсвітити поточну дату в календарі)
-    const isDateEqual1 = isEqual(currentDate, new Date(2022, 0, 7));
-    const isDateEqual2 = isEqual(currentDate, currentDate);
+    const isTheSameDay1 = isSameDay(currentDate, new Date(2022, 0, 8));
+    const isTheSameDay2 = isSameDay(currentDate, currentDate);
 
     // перевірка, чи відноситься дата до виводимого справа місяця
     // (щоб відображати дати поточного місяця і не відображати або притіняти дати попереднього/наступного місяців)
