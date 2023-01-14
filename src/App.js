@@ -23,8 +23,14 @@ class App extends Component {
     };
   }
 
+  // 1
+  setTheme = newTheme => {
+    this.setState({ theme: newTheme });
+  };
+
   render() {
     const { theme } = this.state;
+
     const pageClassName = classNames({
       [styles.lightTheme]: theme === LIGHT,
       [styles.darkTheme]: theme === DARK,
@@ -32,7 +38,8 @@ class App extends Component {
     });
 
     return (
-      <ThemeContext.Provider value={theme}>
+      // 2
+      <ThemeContext.Provider value={{ theme, setTheme: this.setTheme }}>
         <div className={pageClassName}>
           <UserPage />
         </div>
