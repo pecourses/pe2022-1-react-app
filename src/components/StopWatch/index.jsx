@@ -15,7 +15,7 @@ class StopWatch extends Component {
   }
   componentDidUpdate() {}
   componentWillUnmount() {
-    this.stop(0);
+    this.stop();
   }
 
   tick = () => {
