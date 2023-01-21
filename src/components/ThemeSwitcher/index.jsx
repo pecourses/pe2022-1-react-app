@@ -6,9 +6,7 @@ const { LIGHT, DARK, PINK } = CONSTANTS.THEME;
 function ThemeSwitcher() {
   return (
     <ThemeContext.Consumer>
-      {/* // 3 */}
       {({ theme, setTheme }) => {
-        // 4
         const changeTheme = ({ target: { value } }) => {
           setTheme(value);
         };
