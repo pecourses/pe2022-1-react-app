@@ -1,8 +1,7 @@
-import PhonesLoadedList from './components/PhonesLoadedList';
+import UserInfoForm from './components/UserInfoForm/index';
 
-// HOC - компонент вищого порядку (функція, яка приймає і повертає компонент)
 function App() {
-  return <PhonesLoadedList url="/data/phones.json" />;
+  return <UserInfoForm />;
 }
 
 export default App;
