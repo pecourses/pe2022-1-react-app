@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
-import Counter from './components/Counter';
+import React, { useState } from 'react';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+// HOC - компонент вищого порядку (функція, яка приймає і повертає компонент)
+function App() {
+  const InnerComponentWithNewProp = withNewProp(InnerComponent);
 
-    this.state = {
-      step: 1,
-    };
-  }
-
-  changeStep = ({ target: { value } }) => {
-    this.setState({ step: Number(value) });
-  };
-
-  render() {
-    const { step } = this.state;
-
-    return (
-      <>
-        <input type="number" value={step} onChange={this.changeStep} />
-        <Counter step={step} />
-      </>
-    );
-  }
+  return <InnerComponentWithNewProp ownProp="ownProp" />;
 }
 
 export default App;
+
+function withNewProp(WrappedComponent) {
+  function NewComponent(props) {
+    const [newProp, setNewProp] = useState(10);
+
+    return <WrappedComponent newProp={newProp} {...props} />;
+  }
+
+  return NewComponent;
+}
+
+function InnerComponent(props) {
+  return (
+    <div>
+      {props.ownProp ?? 'Prop is missing'} {props.newProp}
+    </div>
+  );
+}
