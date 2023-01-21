@@ -20,8 +20,17 @@ function UserInfoForm() {
       {formikProps => {
         return (
           <Form>
-            <Field type="text" name="firstName" placeholder="Name" autoFocus />
-            <ErrorMessage name="firstName" />
+            <label>
+              <span>Name:</span>
+              <Field
+                type="text"
+                name="firstName"
+                placeholder="Name"
+                autoFocus
+              />
+              <ErrorMessage name="firstName" component="div" />
+            </label>
+
             <button type="submit">Save</button>
             <button type="reset" disabled={!formikProps.dirty}>
               Cancel
