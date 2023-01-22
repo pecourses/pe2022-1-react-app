@@ -1,5 +1,5 @@
-function withContext(WrappedComponent, Context) {
-  function WrappedComponentWithContext(props) {
+function withContext (WrappedComponent, Context) {
+  function WrappedComponentWithContext (props) {
     return (
       <Context.Consumer>
         {value => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function withDataLoading(WrappedComponent) {
-  function WrappedComponentWithDataLoading({ url, ...props }) {
+function withDataLoading (WrappedComponent) {
+  function WrappedComponentWithDataLoading ({ url, ...props }) {
     const [data, setData] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState(null);

@@ -4,7 +4,7 @@ import { USER_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
 
 // Formik взяв на себе керуванням станом керованого компонента
 // + містить шаблонний код його обробників
-function UserInfoForm() {
+function UserInfoForm () {
   const userInitialValues = { firstName: '' };
 
   const handleSubmit = (values, formikBag) => {
@@ -16,23 +16,24 @@ function UserInfoForm() {
     <Formik
       initialValues={userInitialValues}
       onSubmit={handleSubmit}
-      validationSchema={USER_VALIDATION_SCHEMA}>
+      validationSchema={USER_VALIDATION_SCHEMA}
+    >
       {formikProps => {
         return (
           <Form>
             <label>
               <span>Name:</span>
               <Field
-                type="text"
-                name="firstName"
-                placeholder="Name"
+                type='text'
+                name='firstName'
+                placeholder='Name'
                 autoFocus
               />
-              <ErrorMessage name="firstName" component="div" />
+              <ErrorMessage name='firstName' component='div' />
             </label>
 
-            <button type="submit">Save</button>
-            <button type="reset" disabled={!formikProps.dirty}>
+            <button type='submit'>Save</button>
+            <button type='reset' disabled={!formikProps.dirty}>
               Cancel
             </button>
           </Form>

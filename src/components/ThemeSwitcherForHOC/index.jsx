@@ -4,7 +4,7 @@ import { withContext } from '../HOCs';
 
 const { LIGHT, DARK, PINK } = CONSTANTS.THEME;
 
-function ThemeSwitcher({ value: { theme, setTheme } }) {
+function ThemeSwitcher ({ value: { theme, setTheme } }) {
   const changeTheme = ({ target: { value } }) => {
     setTheme(value);
   };

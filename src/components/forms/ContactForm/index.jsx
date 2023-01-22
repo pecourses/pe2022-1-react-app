@@ -6,7 +6,7 @@ import Input from '../Input';
 import styles from './ContactForm.module.sass';
 // Name, Tel, Email, Birthday
 
-function ContactForm() {
+function ContactForm () {
   const initialValues = { name: '', phone: '', email: '', birthday: '' };
 
   const handleSubmit = (values, formikBag) => {
@@ -26,37 +26,38 @@ function ContactForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={CONTACT_VALIDATION_SCHEMA}>
+      validationSchema={CONTACT_VALIDATION_SCHEMA}
+    >
       <Form className={styles.form}>
         <Input
-          label="Name:"
-          type="text"
-          name="name"
-          placeholder="Yourname"
+          label='Name:'
+          type='text'
+          name='name'
+          placeholder='Yourname'
           autoFocus
           classes={classes}
         />
         <Input
-          label="Phone Number:"
-          type="tel"
-          name="phone"
-          placeholder="+380111111111"
+          label='Phone Number:'
+          type='tel'
+          name='phone'
+          placeholder='+380111111111'
           classes={classes}
         />
         <Input
-          label="Email:"
-          type="email"
-          name="email"
-          placeholder="your@mail.com"
+          label='Email:'
+          type='email'
+          name='email'
+          placeholder='your@mail.com'
           classes={classes}
         />
         <Input
-          label="Birthday:"
-          type="date"
-          name="birthday"
+          label='Birthday:'
+          type='date'
+          name='birthday'
           classes={classes}
         />
-        <button type="submit">Save</button>
+        <button type='submit'>Save</button>
       </Form>
     </Formik>
   );

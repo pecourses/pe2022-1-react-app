@@ -1,11 +1,21 @@
 import * as yup from 'yup';
 
 export const USER_VALIDATION_SCHEMA = yup.object({
-  firstName: yup.string().trim().min(2).max(64).required(),
+  firstName: yup
+    .string()
+    .trim()
+    .min(2)
+    .max(64)
+    .required(),
 });
 
 export const CONTACT_VALIDATION_SCHEMA = yup.object({
-  name: yup.string().trim().min(2).max(64).required(),
+  name: yup
+    .string()
+    .trim()
+    .min(2)
+    .max(64)
+    .required(),
   phone: yup
     .string()
     .length(13)
@@ -24,7 +34,10 @@ const USER_SCHEMA = yup.object({
     .matches(/^[A-Z]/, 'Name must starts wich capital letter ')
     .matches(/^.[a-z]*$/, 'Second+ characters must be lower letter')
     .required(),
-  email: yup.string().email().required(),
+  email: yup
+    .string()
+    .email()
+    .required(),
 });
 
 // USER_SCHEMA.validate({ name: 'Agent0047', email: 'test@test.com' })
@@ -42,8 +55,14 @@ const USER_AUTO_SCHEMA = yup.object({
     .max(20)
     .matches(/^[A-Z][a-z]{1,20}$/, 'Enter normal Brand')
     .required(),
-  productionDate: yup.date().min(new Date(1900, 0, 1)).required(),
-  km: yup.number().positive().required(),
+  productionDate: yup
+    .date()
+    .min(new Date(1900, 0, 1))
+    .required(),
+  km: yup
+    .number()
+    .positive()
+    .required(),
   number: yup
     .string()
     .length(8)

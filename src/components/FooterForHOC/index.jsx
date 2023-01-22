@@ -6,7 +6,7 @@ import { withContext } from '../HOCs';
 
 const { LIGHT, DARK, PINK } = CONSTANTS.THEME;
 
-function Footer({ value: { theme } }) {
+function Footer ({ value: { theme } }) {
   const footerClassName = classNames({
     [styles.lightTheme]: theme === LIGHT,
     [styles.darkTheme]: theme === DARK,
