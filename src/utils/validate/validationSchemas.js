@@ -52,11 +52,11 @@ const USER_AUTO_SCHEMA = yup.object({
     .matches(/[A-Z]{2}$/, 'Enter normal seria')
     .required(),
 });
-USER_AUTO_SCHEMA.validate({
-  model: 'Audi',
-  productionDate: new Date(2004, 0, 1),
-  km: 777,
-  number: 'KR7777EK',
-})
-  .then(data => console.log(data))
-  .catch(e => console.log(e));
+// USER_AUTO_SCHEMA.validate({
+//   model: 'Audi',
+//   productionDate: new Date(2004, 0, 1),
+//   km: 777,
+//   number: 'KR7777EK',
+// })
+//   .then(data => console.log(data))
+//   .catch(e => console.log(e));
