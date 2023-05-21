@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactPage from './pages/ContactPage';
+import UsersLoaderCustomH from './components/UsersLoaderCustomH';
 
 function App () {
-  return <ContactPage />;
+  return <UsersLoaderCustomH />;
 }
 
 export default App;
